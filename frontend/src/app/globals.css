@@ -1,0 +1,539 @@
+body{
+  background-color: #F5F7FA;
+  font-family: 'Noto Sans';
+  overflow-x: hidden;
+}
+.tooltip{
+  background-color: rgb(249, 249, 249);
+  display: flex;
+  width: max-content;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Noto Sans';
+  font-size: medium;
+  border: 1px solid rgb(196, 196, 196);
+}
+#heading{
+  font-size: 24px;
+  font-weight:normal;
+  position: absolute;
+  top: 20px;
+  left: 135px;
+}
+#sidebar{
+  display: flex;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+  height: 100vh;
+  width: 5%;
+  z-index: 4;
+  box-shadow: 3px 0px 5px rgba(0, 0, 0,0.2);
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.sbart{
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  filter: opacity(0);
+  transition: 0.3s ease;
+}
+.ico{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  filter: brightness(0);
+}
+.sbarcont{
+  top: 200px;
+  margin-left: 10px;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  gap: 10px;
+}
+.slink{
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+}
+.sbarelement{
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  background-color: white;
+  align-items: center;
+  display: flex;
+  transition: 0.3s ease;
+}
+#sidebar:hover{
+  width: 18%;
+  transition: 0.3s ease;
+  .sbart{
+    filter: opacity(1);
+  }
+  .sbarcont{
+    width: 16%;
+  }
+  .sbarelement{
+    width: 100%;
+    filter: opacity(1);
+  }
+  transition: 0.1s ease;
+}
+.sbarelement:hover{
+  filter: brightness(90%);
+  transition: 0.3s ease;
+}
+#cardtitle{
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  position: relative;
+  font-size: 16px;
+  top: 10px;
+}
+#cval{
+  display: flex;
+  position: relative;
+  font-weight: 500;
+  justify-content: center;
+  font-size: 30px;
+  top: 45px;
+  z-index: 1;
+  transition: 0.3s ease;
+}
+#cvall{
+  display: flex;
+  position: relative;
+  font-weight: 500;
+  justify-content: center;
+  font-size: 30px;
+  top: 45px;
+  z-index: 1;
+  transition: 0.3s ease;
+}
+#cplot{
+  display: none;
+  transition: 0.3s ease;
+}
+#pieplot{
+  display: flex;
+  position: absolute;
+  top: 350px;
+  left: 955px;
+}
+#placeholder:hover{
+  #cplot{
+    display: flex;
+  }
+  #cval{
+    display: none;
+  }
+  transition: 0.3s ease;
+}
+#plot1{
+  display: flex;
+  position: absolute;
+  top: 350px;
+  left: 125px;
+}
+#plot2{
+  display: flex;
+  position: absolute;
+  top: 350px;
+  left: 540px;
+}
+#graph{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 300px;
+  width: 400px;
+  object-fit: contain;
+  align-items: center;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+#graph:hover{
+  box-shadow: 2px 4px 50px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+#pigraph{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 300px;
+  width: 400px;
+  object-fit: contain;
+  align-items: center;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+#pigraph:hover{
+  box-shadow: 2px 4px 50px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+#placeholder{
+  background-color: white;
+  display: flex;
+  height: 220px;
+  width: 230px;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0.5px 0.5px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+#placeholder:hover{
+  box-shadow: 2px 4px 50px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+.heads{
+  display: flex;
+  position: absolute;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  top: 100px;
+}
+
+#sumplots{
+  display: flex;
+  position: absolute;
+  justify-content: center;
+}
+
+#edacard{
+  display: flex;
+  height: 44vh;
+  width: 760px;
+  background-color: white;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+#edacard2{
+  display: flex;
+  height: 400px;
+  width: 46vw;
+  background-color: white;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+#edacard2:hover{
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+
+}
+#edacard:hover{
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+
+}
+
+#edatitle{
+  display: flex;
+  position: relative;
+  top: 5px;
+  justify-content: center;
+  font-family: 'Noto Sans';
+  font-weight: 500;
+}
+
+#edaplot{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+#row1{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  gap: 2vh;
+  left: 685px;
+  top: 140px;
+  height: 90vh;
+}
+#stack{
+  position: relative;
+  display: flex;
+  width: 44vw;
+  right: 0px;
+}
+#row2{
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100vw;
+  gap: 0.8vw;
+  left: 5vw;
+  top: 110vh;
+}
+
+#tcon{
+  position: absolute;
+  display: flex;
+  top: 140px;
+  left: 2vw;;
+}
+
+#table-container {
+  width: 565px; 
+  height: 90vh; 
+  overflow: scroll;
+  position: absolute;
+  left: 60px;
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+#table-container:hover{
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  position: sticky;
+  top: 0;
+  background-color: #f8f8f8; 
+  color: #333; 
+  font-weight: 600; 
+  text-align: left; 
+  padding: 12px 16px; 
+  border-bottom: 2px solid #eee; 
+  z-index: 2; 
+}
+
+.data-table td {
+  color: #555; 
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee; 
+}
+
+.data-table tr:last-child td {
+  border-bottom: none; 
+}
+
+.data-table tbody tr:hover {
+  background-color: #f5f5f5; 
+  transition: background-color 0.3s ease; 
+}
+
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 800px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  transition: 0.3s ease;
+
+}
+.card:hover{
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.card h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+.card h3 {
+  font-size: 20px;
+  color: #444;
+  margin-top: 20px;
+}
+
+.result-text {
+  font-size: 16px;
+  color: #555;
+}
+
+.result-text.success {
+  color: green;
+  font-weight: 500;
+}
+
+.condition-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.condition-list li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.stat-details {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.stat-details summary {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stat-details p {
+  margin: 8px 0;
+}
+#roow2{
+  display: flex;
+  position: absolute;
+  width: 760px;
+  gap: 0.5vw;
+  left: 100px;
+  top: 100px;
+}
+#roow3{
+  display: flex;
+  position: absolute;
+  width: 760px;
+  gap: 15px;
+  left: 100px;
+  top: 660px;
+}
+#roow4{
+  display: flex;
+  position: absolute;
+  width: 800px;
+  gap: 0.5vw;
+  left: 565px;
+  top: 660px;
+}
+#filter{
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  top: 20px;
+  right:150px;
+}
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+  transition: 0.3s ease;
+}
+.slider-container:hover{
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+.slider-label {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 8px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+input[type="range"]:hover {
+  background-color: #ccc;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background-color: #ffffff;
+  border: 2px solid #888;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: border 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  border-color: #555;
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  background-color: #ffffff;
+  border: 2px solid #888;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+#cardplot{
+  height: 550px;
+  width: 800px;
+  background-color: white;
+  display: flex;
+  position: relative;
+  top: 25px;
+  transition: 0.3s ease;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+#cardplot:hover{
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+.r1{
+  display: flex;
+  gap: 20px;
+  position: absolute;
+}
