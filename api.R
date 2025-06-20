@@ -2,7 +2,7 @@ library(plumber)
 library(readr)
 library(dplyr)
 library(jsonlite)
-road_data <- read_csv("A://DAV-Project(Final)//Road.csv")
+road_data <- read_csv("Road.csv")
 
 # Utility function to compute mode
 get_mode <- function(v) {
