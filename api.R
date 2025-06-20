@@ -655,5 +655,28 @@ function(alpha = 0.05, t_critical = 1.96) {
   return(data)
 }
 
+#* @plumber
+function(pr) {
+  # Handle CORS preflight
+  pr$handle("preflight", "*", function(req, res) {
+    res$setHeader("Access-Control-Allow-Origin", "*")
+    res$setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+    res$setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization")
+    res$status <- 204
+    return(res)
+  })
+  
+  # Add CORS headers for all responses
+  pr$registerHooks(
+    list(
+      preroute = function(req, res) {
+        res$setHeader("Access-Control-Allow-Origin", "*")
+      }
+    )
+  )
+  
+  return(pr)
+}
 
+pr$run(host = "0.0.0.0", port = 8000)
 
